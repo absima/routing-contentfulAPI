@@ -28,13 +28,13 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Continents />} />
-          <Route path={`continents`} element={<Continents />}/>              
-          {dta.map(item => {
+          <Route key="home" index element={<Continents />} />
+          <Route key="continent" path={`continents`} element={<Continents />}/>              
+          {dta.map((item, i) => {
             const path=`continents/${item.name}`
             const element = <Parts key={item.name.substring(0,4)} content={item}/>;
             return (
-            <Route path={path} element={element} />
+            <Route key={i+10} path={path} element={element} />
             )
           })}
 
@@ -44,11 +44,11 @@ function App() {
             item.selected[0].map(itm => dtaIn.unshift(itm));
             console.log('dtaInnnnnn', dtaIn)
             return (
-              dtaIn.map(itm => {
+              dtaIn.map((itm, iidx) => {
                 const path=`continents/${item.name}/${itm.name}`
                 const element = <Parts key={itm.name.substring(0,4)} content={itm}/>;
                 
-                return <Route path={path} element={element}/>
+                return <Route key={iidx} path={path} element={element}/>
               })
             )
             
@@ -59,11 +59,11 @@ function App() {
               return <Route path={`continents/${item.name}/${itm.name}`} element={<Parts key={itm.name.substring(0,4)} content={itm}/>} />
             })} */}
 
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="blogs/popular" element={<Popular />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="contact/message" element={<Message />} />
-          <Route path="*" element={<NoPage />} />
+          <Route key="blogs" path="blogs" element={<Blogs />} />
+          <Route key="popular" path="blogs/popular" element={<Popular />} />
+          <Route key="contact" path="contact" element={<Contact />} />
+          <Route key="message" path="contact/message" element={<Message />} />
+          <Route key="nopage" path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

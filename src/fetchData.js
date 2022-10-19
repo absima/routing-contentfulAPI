@@ -4,9 +4,9 @@ import { createClient } from "contentful";
 const fetcher = () => { 
 
   const client = createClient({
-    space: import.meta.env.VITE_SPACE,
-    accessToken: import.meta.env.VITE_TOKEN,
-    host: import.meta.env.VITE_HOST
+    space: 'h4wwx2mbhm2q',//import.meta.env.VITE_SPACE,
+    accessToken: 'JphYl99ZF17a_nH6OD7_l54FRuFIY44JTYLfVuL7AxQ',//import.meta.env.VITE_TOKEN,
+    host: 'cdn.contentful.com'//import.meta.env.VITE_HOST
   });
 
   const getItem = async(contype) => {
