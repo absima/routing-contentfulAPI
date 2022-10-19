@@ -1,8 +1,14 @@
+import React, { useState } from 'react';
 import { createClient } from "contentful";
 
+// const [africa, setAfrica] = useState();
+// const [asia, setAsia] = useState();
+// const [europe, setEurope] = useState();
+// const [namerica, setNamerica] = useState();
+// const [oceania, setOceania] = useState();
+// const [samerica, setSamerica] = useState();
 
 const fetcher = () => { 
-
   const client = createClient({
     space: 'h4wwx2mbhm2q',//import.meta.env.VITE_SPACE,
     accessToken: 'JphYl99ZF17a_nH6OD7_l54FRuFIY44JTYLfVuL7AxQ',//import.meta.env.VITE_TOKEN,
@@ -21,9 +27,11 @@ const fetcher = () => {
       {
         const images = item.fields.images.map(item => item.fields.file);
         images.unshift(item.fields.image.fields.file);
+        delete item.fields.image;
         const overview = item.fields.overview; //////
         return { ...item.fields, images, overview };
       });
+      // console.log('contentEntries', contentEntries);
       return [contentEntries, null];
     }
     catch (error) {

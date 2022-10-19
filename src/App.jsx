@@ -23,7 +23,7 @@ function App() {
     // arrange in alphabetical o.
     let dta = [];
     data[0].map((item) => dta.unshift(item))
-    console.log('dta unshift', dta)
+    // console.log('dta unshift', dta)
     return (
       <BrowserRouter>
       <Routes>
@@ -42,7 +42,7 @@ function App() {
           {dta.map((item, idxx) => {
             let dtaIn = [];
             item.selected[0].map(itm => dtaIn.unshift(itm));
-            console.log('dtaInnnnnn', dtaIn)
+            // console.log('dtaInnnnnn', dtaIn)
             return (
               dtaIn.map((itm, iidx) => {
                 const path=`continents/${item.name}/${itm.name}`
